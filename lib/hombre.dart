@@ -76,12 +76,12 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
         ],
       ),
       body: Container(
-        /*decoration: BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/background/FondoNavegations.png"),
+            image: AssetImage("assets/background/FondoHombre.png"),
             fit: BoxFit.cover,
           ),
-        ),*/
+        ),
         child:Center(
           child: Column(
             children: <Widget>[

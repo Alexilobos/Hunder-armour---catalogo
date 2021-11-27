@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'hombre.dart';
+import 'login.dart';
 import 'mujeres.dart';
 
 class Principal extends StatefulWidget {
@@ -55,9 +56,11 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
               PopupMenuItem(
                 child: Container(
                   child: TextButton(
-                    child: Text("texto 1"),
+                    child: Text("Perfil"),
                       onPressed: () {
-                        print("Hola soy texto1");
+                        Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => LoginHome())
+                        );
                       },
                   ),
                 ),
@@ -67,12 +70,12 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
         ],
       ),
       body: Container(
-        /*decoration: BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/background/FondoNavegations.png"),
+            image: AssetImage("assets/background/FondoPrincipal.png"),
             fit: BoxFit.cover,
           ),
-        ),*/
+        ),
         child:Center(
           child: Column(
             children: <Widget>[
