@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'principal.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -38,9 +40,23 @@ class _InicioState extends State<Inicio> {
         ),
         child: GestureDetector(
           onTap: (){
-            print("Hola soy la presentacion");
+            Navigator.push(
+              context,MaterialPageRoute(builder: (context) => Principal())
+            );
           },
-          //child: ,
+          child: Center( 
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(20, 250, 20, 20),
+              child: Text("Precione aqui...",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            )
+          )
         ),
       ),
     );
