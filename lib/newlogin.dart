@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class SingUp extends StatefulWidget {
   SingUp({Key? key}) : super(key: key);
@@ -61,7 +62,6 @@ class _SingUpState extends State<SingUp> {
       ),
     );
 
-
     final loginButtonSingUp = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
@@ -80,11 +80,20 @@ class _SingUpState extends State<SingUp> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: ()=> Navigator.push(
+            context,MaterialPageRoute(builder: (context){return LoginHome();})
+          ),
+        ),
+      ),
       body: Center(
         child: Container(
           color: Colors.black87,
           child: Padding(
-            padding: const EdgeInsets.all(36.0),
+            padding: const EdgeInsets.all(26.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -96,16 +105,15 @@ class _SingUpState extends State<SingUp> {
                   ),
                 ),
                 titleSignup,
-                SizedBox(height: 35.0),
+                SizedBox(height: 25.0),
                 emailFieldSingUp,
-                SizedBox(height: 25.0),
-                passwordFieldSingUp,
-                SizedBox(height: 25.0),
-                confirmPasswordFieldSingUp,
-                SizedBox(height: 35.0),
-                loginButtonSingUp,
                 SizedBox(height: 15.0),
-
+                passwordFieldSingUp,
+                SizedBox(height: 15.0),
+                confirmPasswordFieldSingUp,
+                SizedBox(height: 25.0),
+                loginButtonSingUp,
+                SizedBox(height: 5.0),
               ],
             ),
           ),

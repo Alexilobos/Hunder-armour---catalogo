@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'principal.dart';
 
 void main() {
@@ -15,7 +14,8 @@ class MyApp extends StatelessWidget {
         title: "Under Armour",
         home: Container(
           child: Inicio(),
-        )
+        ),
+        debugShowCheckedModeBanner: false,
     );
   }
 }

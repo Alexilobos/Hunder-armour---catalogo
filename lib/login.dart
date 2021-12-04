@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'newlogin.dart';
+import 'principal.dart';
 
 class LoginHome extends StatefulWidget {
   LoginHome({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class _LoginHomeState extends State<LoginHome> {
       color: Colors.blueGrey[400],
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: EdgeInsets.fromLTRB(0.0, 15.0, 20.0, 15.0),
         onPressed: () {},
         child: Text("Acceder",
           textAlign: TextAlign.center,
@@ -76,6 +76,15 @@ class _LoginHomeState extends State<LoginHome> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: ()=> Navigator.push(
+            context,MaterialPageRoute(builder: (context){return Principal();})
+          ),
+        ),
+      ),
       body: Center(
         child: Container(
           color: Colors.black87,
@@ -99,7 +108,6 @@ class _LoginHomeState extends State<LoginHome> {
                 loginButton,
                 SizedBox(height: 15.0),
                 newAccount,
-
               ],
             ),
           ),

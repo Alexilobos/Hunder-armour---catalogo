@@ -15,6 +15,7 @@ class _MujerState extends State<Mujer> {
       home: Container(
         child: CuerpoMujer(),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -84,7 +85,7 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
@@ -98,7 +99,7 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
@@ -112,7 +113,7 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
@@ -126,7 +127,7 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),

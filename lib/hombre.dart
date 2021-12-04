@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'principal.dart';
+import 'productwidget.dart';
+
+const All = 'all';
+const ZAPATO = 'zapato';
+const POLERAS = 'polera';
+const PANTALONES = 'pantalon';
+const ACCESORIOS = 'accesorio';
 
 class Hombre extends StatefulWidget {
-  Hombre({Key? key}) : super(key: key);
-
+  Hombre({Key? key,}) : super(key: key);
+  
   @override
   _HombreState createState() => _HombreState();
 }
@@ -15,6 +22,7 @@ class _HombreState extends State<Hombre> {
       home: Container(
         child: CuerpoHombre(),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -35,7 +43,7 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: ()=> Navigator.push(
-            context,MaterialPageRoute(builder: (context){return Principal();})
+            context,MaterialPageRoute(builder: (context){return ElementoCuerpo();})
           ),
         ),
         centerTitle: true,
@@ -58,14 +66,6 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
             )
           ],
         ),
-        /*const Text(
-          "Under Armour",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            fontWeight: FontWeight.bold
-          ),
-        ),*/
         actions: <Widget>[
           Container(
             padding: const EdgeInsets.only(right: 15.0),
@@ -92,11 +92,16 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ZAPATO,)),       
+                    );
+                  }
                 ),
               ),
               Container(
@@ -106,11 +111,16 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: POLERAS,)),       
+                    );
+                  }
                 ),
               ),
               Container(
@@ -120,11 +130,16 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: PANTALONES,)),       
+                    );
+                  }
                 ),
               ),
               Container(
@@ -134,11 +149,16 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ACCESORIOS,)),       
+                    );
+                  }
                 ),
               ),
             ],

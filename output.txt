@@ -1,0 +1,12 @@
+   70 ./lib/cartas.dart
+   15 ./lib/generated_plugin_registrant.dart
+  150 ./lib/hombre.dart
+  117 ./lib/login.dart
+   65 ./lib/main.dart
+   32 ./lib/models/apiservice.dart
+  142 ./lib/mujeres.dart
+  123 ./lib/newlogin.dart
+  104 ./lib/presentacionZapatilla.dart
+  135 ./lib/principal.dart
+   30 ./test/widget_test.dart
+  983 total

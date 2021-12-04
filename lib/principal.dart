@@ -17,6 +17,7 @@ class _PrincipalState extends State<Principal> {
       home: Container(
         child: ElementoCuerpo(),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -50,11 +51,13 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
         ),
         actions: <Widget>[
           PopupMenuButton(
+            color: Colors.black87,
             icon: Icon(Icons.menu),
             padding: const EdgeInsets.only(right: 10.0),
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: Container(
+                  color: Colors.grey[900],
                   child: TextButton(
                     child: Text("Perfil"),
                       onPressed: () {
@@ -64,7 +67,16 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                       },
                   ),
                 ),
-              )
+              ),
+              PopupMenuItem(
+                child: Container(
+                  color: Colors.grey[900],
+                  child: TextButton(
+                    child: Text("Prueba"),
+                      onPressed: () {},
+                  ),
+                ),
+              ),
             ]
           )
         ],
@@ -86,7 +98,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
@@ -104,7 +116,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                   style: OutlinedButton.styleFrom(
                     fixedSize: Size(200,80),
                     primary: Colors.white,
-                    backgroundColor: Colors.red[400],
+                    backgroundColor: Colors.black87,
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
