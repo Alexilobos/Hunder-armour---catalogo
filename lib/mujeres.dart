@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_under_armour/hombre.dart';
 import 'principal.dart';
+import 'productwidget.dart';
 
 class Mujer extends StatefulWidget {
   Mujer({Key? key}) : super(key: key);
@@ -89,7 +91,12 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ZAPATO,generoproducto: 1,)),       
+                    );
+                  }
                 ),
               ),
               Container(
@@ -103,7 +110,12 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: POLERAS,generoproducto: 1,)),       
+                    );
+                  }
                 ),
               ),
               Container(
@@ -117,7 +129,12 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: PANTALONES,generoproducto: 1,)),       
+                    );
+                  }
                 ),
               ),
               Container(
@@ -131,7 +148,12 @@ class _CuerpoHombreState extends State<CuerpoMujer> {
                     elevation: 5,
                     shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  onPressed: () {}
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ACCESORIOS,generoproducto: 1,)),       
+                    );
+                  }
                 ),
               ),
             ],

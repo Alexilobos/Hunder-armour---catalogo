@@ -72,7 +72,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                 child: Container(
                   color: Colors.grey[900],
                   child: TextButton(
-                    child: Text("Prueba"),
+                    child: Text("Admin"),
                       onPressed: () {},
                   ),
                 ),

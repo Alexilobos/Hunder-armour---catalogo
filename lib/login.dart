@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'newlogin.dart';
 import 'principal.dart';
 
@@ -10,12 +13,61 @@ class LoginHome extends StatefulWidget {
 }
 
 class _LoginHomeState extends State<LoginHome> {
-  TextStyle style = TextStyle(color: Colors.white, fontFamily: 'Montserrat', fontSize: 20.0);
+  /*bool _isLoading = false;
+
+  final TextEditingController userController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
+
+  login(String user, pass) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String url = 'https://jwtcoreapi.azurewebsites.net/api/Authenticate/login';
+    var response = await http.post(Uri.parse(url),
+        headers: {
+          "Accept": "application/json",
+          "content-type": "application/json"
+        },
+        body: jsonEncode({
+          "username": user,
+          "password": pass,
+        }));
+    if (response.statusCode == 200) {
+      var jsonResponse = json.decode(response.body);
+      if (jsonResponse != null) {
+        var token = jsonResponse['token'];
+        prefs.setString('token', token);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+            (Route<dynamic> route) => false);
+      }
+    } else {
+      _alert('Login Error', 'Mensaje de error');
+    }
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  _alert(String title, body) {
+    AlertDialog alert = AlertDialog(
+      title: Text(title),
+      content: Text(body),
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }*/
+
+
+  TextStyle style = TextStyle(color: Colors.black, fontFamily: 'Montserrat', fontSize: 20.0);
 
   @override
   Widget build(BuildContext context) {
 
-    final emailField = TextField(
+    final emailField = TextFormField(
       obscureText: false,
       style: style,
       decoration: InputDecoration(
@@ -28,7 +80,7 @@ class _LoginHomeState extends State<LoginHome> {
       ),
     );
 
-    final passwordField = TextField(
+    final passwordField = TextFormField(
       obscureText: true,
       style: style,
       decoration: InputDecoration(
@@ -61,7 +113,7 @@ class _LoginHomeState extends State<LoginHome> {
     final newAccount = TextButton(
       onPressed: () {
         Navigator.push(
-          context,MaterialPageRoute(builder: (context) => SingUp())
+          context,MaterialPageRoute(builder: (context) => NewLogin())
         );
       },
       child: Text(

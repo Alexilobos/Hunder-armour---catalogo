@@ -8,6 +8,10 @@ const POLERAS = 'polera';
 const PANTALONES = 'pantalon';
 const ACCESORIOS = 'accesorio';
 
+const GENHOMBRE = 0;
+const GENMUJER = 1;
+const MIXTO = 2;
+
 class Hombre extends StatefulWidget {
   Hombre({Key? key,}) : super(key: key);
   
@@ -99,7 +103,7 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ZAPATO,)),       
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ZAPATO,generoproducto: 0,)),       
                     );
                   }
                 ),
@@ -118,7 +122,7 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: POLERAS,)),       
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: POLERAS,generoproducto: 0,)),       
                     );
                   }
                 ),
@@ -137,7 +141,7 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: PANTALONES,)),       
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: PANTALONES,generoproducto: 0,)),       
                     );
                   }
                 ),
@@ -156,7 +160,7 @@ class _CuerpoHombreState extends State<CuerpoHombre> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ACCESORIOS,)),       
+                      MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ACCESORIOS,generoproducto: 0,)),       
                     );
                   }
                 ),

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:frontend_under_armour/detailproduct.dart';
 import 'package:frontend_under_armour/models/products.dart';
 
 class CardWidget extends StatefulWidget {
@@ -18,10 +19,10 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        /*Navigator.push(
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PokeDetail(pokemon: widget.pokemon)),       
-        );*/
+          MaterialPageRoute(builder: (context) => DetailProduct(product: widget.product)),       
+        );
       },
       child: Container(
         width: 135.0,

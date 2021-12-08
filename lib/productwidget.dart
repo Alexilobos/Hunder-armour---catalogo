@@ -8,9 +8,11 @@ class ProductsWidget extends StatefulWidget {
   ProductsWidget({
     Key? key,
     required this.tipoproducto,
+    required this.generoproducto,
   }) : super(key: key);
 
   final String tipoproducto;
+  final int generoproducto;
   @override
   _ProductsWidgetState createState() => _ProductsWidgetState();
 }
@@ -22,7 +24,7 @@ class _ProductsWidgetState extends State<ProductsWidget> {
   @override
   void initState(){
     super.initState();
-    futureproducts = service.getData(widget.tipoproducto);
+    futureproducts = service.getData(widget.tipoproducto, widget.generoproducto);
   }
 
   @override
@@ -34,11 +36,12 @@ class _ProductsWidgetState extends State<ProductsWidget> {
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: ()=> Navigator.push(
-                context,MaterialPageRoute(builder: (context){return Hombre();})
+                context,MaterialPageRoute(builder: (context) => Hombre()),
               ),
             ),
             backgroundColor: Colors.grey[700],
-            title: Text("Zapatillas", 
+            title: Text(
+              "Nombre de la cosa", 
               style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
             ),
             actions: <Widget>[
@@ -55,8 +58,6 @@ class _ProductsWidgetState extends State<ProductsWidget> {
             child: FutureBuilder<List<Products>>(
               future: futureproducts,
               builder:  (context, AsyncSnapshot snapshot){
-                print("Soy snapshot.data");
-                print(snapshot.data);
                 if(snapshot.hasData){
                   return GridView.builder(
                     itemCount: snapshot.data.length,

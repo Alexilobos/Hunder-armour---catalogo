@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 
-class SingUp extends StatefulWidget {
-  SingUp({Key? key}) : super(key: key);
+class NewLogin extends StatefulWidget {
+  NewLogin({Key? key}) : super(key: key);
 
   @override
-  _SingUpState createState() => _SingUpState();
+  _NewLoginState createState() => _NewLoginState();
 }
 
-class _SingUpState extends State<SingUp> {
+class _NewLoginState extends State<NewLogin> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
   @override
