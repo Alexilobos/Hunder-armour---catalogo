@@ -93,19 +93,43 @@ class _SelectGeneroState extends State<SelectGenero> {
                   Padding(
                     padding: EdgeInsets.only(top: 40.0),
                   ),
-                  WidgetButton(imagenbutton: IMAMUJERZAPATO,label: "Zapatillas",onclick: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ZAPATO,generoproducto: widget.generoprincipal)))}),
+                  WidgetButton(
+                    imagenbutton: widget.generoprincipal == GENMUJER ? IMAMUJERZAPATO : IMAHOMBREZAPATO,
+                    label: "Zapatillas",
+                    onclick: () => {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => 
+                        ProductsWidget(tipoproducto: ZAPATO,generoproducto: widget.generoprincipal)
+                      ))}),
                   Padding(
                     padding: EdgeInsets.only(top: 40.0),
                   ),
-                  WidgetButton(imagenbutton: IMAMUJERPOLERA,label: "Poleras",onclick: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: POLERAS,generoproducto: widget.generoprincipal)))}),
+                  WidgetButton(
+                    imagenbutton: widget.generoprincipal == GENMUJER ? IMAMUJERPOLERA : IMAHOMBREPOLERA,
+                    label: "Poleras",
+                    onclick: () => {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => 
+                        ProductsWidget(tipoproducto: POLERAS,generoproducto: widget.generoprincipal)
+                      ))}),
                   Padding(
                     padding: EdgeInsets.only(top: 40.0),
                   ),
-                  WidgetButton(imagenbutton: IMAMUJERPANTALON,label: "Pantalones",onclick: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: PANTALONES,generoproducto: widget.generoprincipal)))}),
+                  WidgetButton(
+                    imagenbutton: widget.generoprincipal == GENMUJER ? IMAMUJERPANTALON : IMAHOMBREPANTALON,
+                    label: "Pantalones",
+                    onclick: () => {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => 
+                        ProductsWidget(tipoproducto: PANTALONES,generoproducto: widget.generoprincipal)
+                      ))}),
                   Padding(
                     padding: EdgeInsets.only(top: 40.0),
                   ),
-                  WidgetButton(imagenbutton: IMAMUJERACCESORIO,label: "Accesorios",onclick: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => ProductsWidget(tipoproducto: ACCESORIOS,generoproducto: widget.generoprincipal,)))}),
+                  WidgetButton(
+                    imagenbutton: widget.generoprincipal == GENMUJER ? IMAMUJERACCESORIO : IMAHOMBREACCESORIO,
+                    label: "Accesorios",
+                    onclick: () => {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => 
+                        ProductsWidget(tipoproducto: ACCESORIOS,generoproducto: widget.generoprincipal,)
+                      ))}),
 
                   
                 ],

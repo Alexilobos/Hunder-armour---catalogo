@@ -8,13 +8,11 @@ class WidgetButton extends StatefulWidget {
     required this.imagenbutton,
     required this.label,
     required this.onclick,
-    required this.genero,
   }) : super(key: key);
 
   final String imagenbutton;
   final String label;
   final Function() onclick;
-  final int genero;
   @override
   _WidgetButtonState createState() => _WidgetButtonState();
 }
@@ -31,7 +29,7 @@ class _WidgetButtonState extends State<WidgetButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
           image: DecorationImage(
-            image: AssetImage(widget.genero == GENHOMBRE? "assets/background/Hombre": "assets/background/Mujer"),//NetworkImage(widget.imagenbutton),
+            image: AssetImage(widget.imagenbutton),//NetworkImage(widget.imagenbutton),
           )
         ),
         child: Container(
