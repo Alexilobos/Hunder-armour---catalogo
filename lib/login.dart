@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'newlogin.dart';
 import 'principal.dart';
+import 'package:http/http.dart' as http;
 
 class LoginHome extends StatefulWidget {
   LoginHome({Key? key}) : super(key: key);
@@ -13,21 +14,21 @@ class LoginHome extends StatefulWidget {
 }
 
 class _LoginHomeState extends State<LoginHome> {
-  /*bool _isLoading = false;
+  bool _isLoading = false;
 
-  final TextEditingController userController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
-  login(String user, pass) async {
+  login(String email, pass) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String url = 'https://jwtcoreapi.azurewebsites.net/api/Authenticate/login';
+    String url = 'http://127.0.0.1:5000/users';
     var response = await http.post(Uri.parse(url),
         headers: {
           "Accept": "application/json",
           "content-type": "application/json"
         },
         body: jsonEncode({
-          "username": user,
+          "email": email,
           "password": pass,
         }));
     if (response.statusCode == 200) {
@@ -37,7 +38,7 @@ class _LoginHomeState extends State<LoginHome> {
         prefs.setString('token', token);
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const Home()),
+            MaterialPageRoute(builder: (context) => Principal()),
             (Route<dynamic> route) => false);
       }
     } else {
@@ -59,7 +60,7 @@ class _LoginHomeState extends State<LoginHome> {
         return alert;
       },
     );
-  }*/
+  }
 
 
   TextStyle style = TextStyle(color: Colors.black, fontFamily: 'Montserrat', fontSize: 20.0);
@@ -68,6 +69,7 @@ class _LoginHomeState extends State<LoginHome> {
   Widget build(BuildContext context) {
 
     final emailField = TextFormField(
+      controller: emailController,
       obscureText: false,
       style: style,
       decoration: InputDecoration(
@@ -81,6 +83,7 @@ class _LoginHomeState extends State<LoginHome> {
     );
 
     final passwordField = TextFormField(
+      controller: passController,
       obscureText: true,
       style: style,
       decoration: InputDecoration(
@@ -100,7 +103,12 @@ class _LoginHomeState extends State<LoginHome> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(0.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            _isLoading = true;
+          });
+          login(emailController.text, passController.text);
+        },
         child: Text("Acceder",
           textAlign: TextAlign.center,
           style: style.copyWith(

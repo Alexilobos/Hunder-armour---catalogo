@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'hombre.dart';
+import 'package:frontend_under_armour/widget-componet/button.dart';
+import 'select_gen.dart';
 import 'login.dart';
-import 'mujeres.dart';
+
+const IMAHOMBREPRINC = "assets/background/HombrePrincipal.png";
+const IMAMUJERPRINC = "assets/background/MujerPrincipal.png";
 
 class Principal extends StatefulWidget {
   Principal({Key? key}) : super(key: key);
@@ -91,7 +94,25 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
         child:Center(
           child: Column(
             children: <Widget>[
-              Container(
+              Padding(
+                padding: EdgeInsets.only(top: 80.0),
+              ),
+              WidgetButton(imagenbutton: IMAHOMBREPRINC,label: "Hombre",onclick: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => SelectGenero(generoprincipal: GENHOMBRE)))}),
+              Padding(
+                padding: EdgeInsets.only(top: 80.0),
+              ),
+              WidgetButton(imagenbutton: IMAMUJERPRINC,label: "Mujer",onclick: () => {Navigator.push(context,MaterialPageRoute(builder: (context) => SelectGenero(generoprincipal: GENMUJER)))}),
+              
+            ],
+          ),
+        )
+      ),
+    );
+  }
+}
+
+
+/*Container(
                 margin: EdgeInsets.only(top: 160), 
                 child: OutlinedButton(
                   child: Text("Hombres"),
@@ -104,7 +125,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                   ),
                   onPressed: () {
                     Navigator.push(
-                      context,MaterialPageRoute(builder: (context) => Hombre())
+                      context,MaterialPageRoute(builder: (context) => SelectGenero(generoprincipal: GENHOMBRE,))
                     );
                   }
                 ),
@@ -122,15 +143,8 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                   ),
                   onPressed: () {
                     Navigator.push(
-                      context,MaterialPageRoute(builder: (context) => Mujer())
+                      context,MaterialPageRoute(builder: (context) => SelectGenero(generoprincipal: GENMUJER,))
                     );
                   }
                 ),
-              ),
-            ],
-          ),
-        )
-      ),
-    );
-  }
-}
+              ),*/

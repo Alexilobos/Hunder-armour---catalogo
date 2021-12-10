@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_under_armour/models/products.dart';
 import 'cartas.dart';
-import 'hombre.dart';
-import 'models/apiservice.dart';
+import '../select_gen.dart';
+import '../models/apiservice.dart';
 
 class ProductsWidget extends StatefulWidget {
   ProductsWidget({
@@ -36,12 +36,12 @@ class _ProductsWidgetState extends State<ProductsWidget> {
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: ()=> Navigator.push(
-                context,MaterialPageRoute(builder: (context) => Hombre()),
+                context,MaterialPageRoute(builder: (context) => SelectGenero(generoprincipal: widget.generoproducto,)),
               ),
             ),
             backgroundColor: Colors.grey[700],
             title: Text(
-              "Nombre de la cosa", 
+              widget.tipoproducto, 
               style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
             ),
             actions: <Widget>[
@@ -54,7 +54,8 @@ class _ProductsWidgetState extends State<ProductsWidget> {
             ],
             centerTitle: true,
           ),
-          body: Container(
+          body: 
+          Container(
             child: FutureBuilder<List<Products>>(
               future: futureproducts,
               builder:  (context, AsyncSnapshot snapshot){
