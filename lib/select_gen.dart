@@ -38,6 +38,33 @@ class SelectGenero extends StatefulWidget {
 }
 
 class _SelectGeneroState extends State<SelectGenero> {
+  /*
+  // Funcionamiento de un ternario
+  // condicion ? verdadero : falso;
+
+  String getAccesorio() {
+    // Operacion larga
+    // String imagenAUsar = IMAHOMBREACCESORIO;
+    // if (widget.generoprincipal == GENMUJER) {
+    //   imagenAUsar = IMAMUJERACCESORIO;
+    // }
+    // return imagenAUsar;
+    //
+    // Mismo de arriba pero mas resumido
+    //
+    if (widget.generoprincipal == GENMUJER)
+      return IMAMUJERACCESORIO;
+    return IMAHOMBREACCESORIO;
+  }
+
+  // Funcion lambda
+  // Funcion de flecha
+  // String getZapatos() => widget.generoprincipal == GENMUJER ? IMAMUJERZAPATO : IMAHOMBREZAPATO;
+  String getZapatos() {
+    // Funcion tradicional con ternario
+    return widget.generoprincipal == GENMUJER ? IMAMUJERZAPATO : IMAHOMBREZAPATO;
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -94,7 +121,7 @@ class _SelectGeneroState extends State<SelectGenero> {
                     padding: EdgeInsets.only(top: 40.0),
                   ),
                   WidgetButton(
-                    imagenbutton: widget.generoprincipal == GENMUJER ? IMAMUJERZAPATO : IMAHOMBREZAPATO,
+                    imagenbutton: widget.generoprincipal == GENMUJER ? IMAMUJERZAPATO : IMAHOMBREZAPATO, //widget.generoprincipal == GENMUJER ? IMAMUJERZAPATO : IMAHOMBREZAPATO,
                     label: "Zapatillas",
                     onclick: () => {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => 
@@ -129,9 +156,9 @@ class _SelectGeneroState extends State<SelectGenero> {
                     onclick: () => {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => 
                         ProductsWidget(tipoproducto: ACCESORIOS,generoproducto: widget.generoprincipal,)
-                      ))}),
-
-                  
+                      ))
+                    }
+                  ),
                 ],
               ),
             )

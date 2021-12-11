@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_under_armour/widget-componet/button.dart';
+import 'admin.dart';
 import 'select_gen.dart';
 import 'login.dart';
 
@@ -76,7 +77,11 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                   color: Colors.grey[900],
                   child: TextButton(
                     child: Text("Admin"),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => AdminPrincipal())
+                        );
+                      },
                   ),
                 ),
               ),

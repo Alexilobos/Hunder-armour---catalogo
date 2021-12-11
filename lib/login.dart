@@ -30,7 +30,8 @@ class _LoginHomeState extends State<LoginHome> {
         body: jsonEncode({
           "email": email,
           "password": pass,
-        }));
+        })
+    );
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
       if (jsonResponse != null) {
@@ -39,7 +40,8 @@ class _LoginHomeState extends State<LoginHome> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => Principal()),
-            (Route<dynamic> route) => false);
+            (Route<dynamic> route) => false
+        );
       }
     } else {
       _alert('Login Error', 'Mensaje de error');

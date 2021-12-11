@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:frontend_under_armour/select_gen.dart';
 
 class WidgetButton extends StatefulWidget {
   WidgetButton({Key? key,
