@@ -22,7 +22,7 @@ class _AdminUsuarioState extends State<AdminUsuario> {
 
   agregadoproduct(String username, email, passw) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String url = 'https://jwtcoreapi.azurewebsites.net/api/Authenticate/login';
+    String url = 'http://127.0.0.1:5000/users';
     var response = await http.post(Uri.parse(url),
         headers: {
           "Accept": "application/json",
@@ -69,82 +69,80 @@ class _AdminUsuarioState extends State<AdminUsuario> {
     return MaterialApp(
       home: Container(
         child: Scaffold(
-          //backgroundColor: Colors.black87,
-          appBar: AppBar(
-            backgroundColor: Colors.black87,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: ()=> Navigator.push(
-                context,MaterialPageRoute(builder: (context){return AdminPrincipal();})
+            //backgroundColor: Colors.black87,
+            appBar: AppBar(
+              backgroundColor: Colors.black87,
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) {
+                  return AdminPrincipal();
+                })),
+              ),
+              actions: [
+                Container(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: ImageIcon(
+                    AssetImage('assets/ui/LogoUnder.png'),
+                  ),
+                ),
+              ],
+              centerTitle: true,
+              title: const Text(
+                "Administrador",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-            actions: [
-              Container(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: ImageIcon(
-                  AssetImage('assets/ui/LogoUnder.png'),
+            body: SafeArea(
+              child: Container(
+                padding: const EdgeInsets.only(top: 150, left: 20, right: 20),
+                child: ListView(
+                  children: [
+                    //const Icon(Icons.person, size: 200),
+                    TextFormField(
+                      controller: usernameController,
+                      //obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Username',
+                      ),
+                    ),
+                    TextFormField(
+                      controller: emailController,
+                      //obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                      ),
+                    ),
+                    TextFormField(
+                      controller: passwordController,
+                      //obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
+                      ),
+                    ),
+                    Container(
+                        padding: const EdgeInsets.symmetric(vertical: 48),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                _isLoading = true;
+                              });
+                              agregadoproduct(
+                                usernameController.text,
+                                emailController.text,
+                                passwordController.text,
+                              );
+                            },
+                            child: const Text(
+                              'Agregar',
+                            ))),
+                  ],
                 ),
               ),
-            ],
-            centerTitle: true,
-            title: const Text(
-              "Administrador",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          body: SafeArea(
-            child: Container(
-              padding: const EdgeInsets.only(top: 150, left: 20, right: 20),
-              child:  ListView(
-                children: [
-                  //const Icon(Icons.person, size: 200),
-                  TextFormField(
-                    controller: usernameController,
-                    //obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Username',
-                    ),
-                  ),
-                  TextFormField(
-                    controller: emailController,
-                    //obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                    ),
-                  ),
-                  TextFormField(
-                    controller: passwordController,
-                    //obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 48),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          _isLoading = true;
-                        });
-                        agregadoproduct(
-                          usernameController.text,
-                          emailController.text,
-                          passwordController.text,
-                        );
-                      },
-                      child: const Text(
-                        'Agregar',
-                      )
-                    )
-                  ),
-                ],
-              ),
-            ),
-          )
-        ),
+            )),
       ),
       debugShowCheckedModeBanner: false,
     );

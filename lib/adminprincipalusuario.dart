@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_under_armour/adminusuario.dart';
-import 'package:frontend_under_armour/principal.dart';
 
-import 'adminprincipalproduct.dart';
-import 'adminproduct.dart';
+import 'admin.dart';
 
-class AdminPrincipal extends StatefulWidget {
-  AdminPrincipal({Key? key}) : super(key: key);
+class AdminPrincipalUsuario extends StatefulWidget {
+  AdminPrincipalUsuario({Key? key}) : super(key: key);
 
   @override
-  _AdminPrincipalState createState() => _AdminPrincipalState();
+  _AdminPrincipalProductState createState() => _AdminPrincipalProductState();
 }
 
-class _AdminPrincipalState extends State<AdminPrincipal> {
+class _AdminPrincipalProductState extends State<AdminPrincipalUsuario> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +23,7 @@ class _AdminPrincipalState extends State<AdminPrincipal> {
               onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Principal(),
+                    builder: (context) => AdminPrincipal(), //
                   )),
             ),
             backgroundColor: Colors.grey[700],
@@ -50,7 +48,7 @@ class _AdminPrincipalState extends State<AdminPrincipal> {
                 Container(
                   margin: EdgeInsets.only(top: 160),
                   child: OutlinedButton(
-                      child: Text("Productos"),
+                      child: Text("Agregar"), //
                       style: OutlinedButton.styleFrom(
                         fixedSize: Size(200, 80),
                         primary: Colors.white,
@@ -64,7 +62,7 @@ class _AdminPrincipalState extends State<AdminPrincipal> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AdminPrincipalProduct()));
+                                builder: (context) => AdminUsuario())); //
                       }),
                 ),
                 Container(
@@ -84,7 +82,7 @@ class _AdminPrincipalState extends State<AdminPrincipal> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AdminUsuario()));
+                                builder: (context) => AdminUsuario())); //sss
                       }),
                 ),
               ],
