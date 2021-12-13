@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_under_armour/adminusuario.dart';
 
-import 'adminproduct.dart';
+import 'adminprincipalproduct.dart';
+import 'principal.dart';
 
 class AdminPrincipal extends StatefulWidget {
   AdminPrincipal({Key? key}) : super(key: key);
@@ -18,72 +19,79 @@ class _AdminPrincipalState extends State<AdminPrincipal> {
         child: Scaffold(
           backgroundColor: Colors.black87,
           appBar: AppBar(
-            backgroundColor: Colors.black87,
-            leading: Container(
-              padding: const EdgeInsets.only(left: 10.0),
-              child: ImageIcon(
-                AssetImage('assets/ui/LogoUnder.png'),
-              ),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Principal(),
+                  )),
             ),
-            centerTitle: true,
-            title: const Text(
+            backgroundColor: Colors.grey[700],
+            title: Text(
               "Administrador",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.bold
-              ),
+              style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
             ),
+            actions: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(right: 15.0),
+                child: ImageIcon(
+                  AssetImage('assets/ui/LogoUnder.png'),
+                ),
+              ),
+            ],
+            centerTitle: true,
           ),
           body: Container(
-            child:Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 160), 
-                    child: OutlinedButton(
+              child: Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 160),
+                  child: OutlinedButton(
                       child: Text("Productos"),
                       style: OutlinedButton.styleFrom(
-                        fixedSize: Size(200,80),
+                        fixedSize: Size(200, 80),
                         primary: Colors.white,
                         backgroundColor: Colors.black45,
                         elevation: 5,
-                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
                       ),
                       onPressed: () {
                         Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => AdminProduct())
-                        );
-                      }
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 50), 
-                    child: OutlinedButton(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AdminPrincipalProduct()));
+                      }),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 50),
+                  child: OutlinedButton(
                       child: Text("Usuarios"),
                       style: OutlinedButton.styleFrom(
-                        fixedSize: Size(200,80),
+                        fixedSize: Size(200, 80),
                         primary: Colors.white,
                         backgroundColor: Colors.black45,
                         elevation: 5,
-                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
                       ),
                       onPressed: () {
                         Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => AdminUsuario())
-                        );
-                      }
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ),
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AdminUsuario()));
+                      }),
+                ),
+              ],
+            ),
+          )),
         ),
       ),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
-

@@ -16,22 +16,21 @@ class LoginHome extends StatefulWidget {
 class _LoginHomeState extends State<LoginHome> {
   bool _isLoading = false;
 
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
-  login(String email, pass) async {
+  login(String username, pass) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String url = 'http://127.0.0.1:5000/users';
-    var response = await http.post(Uri.parse(url),
+    String url2 = 'https://backendfinalunderarmour.azurewebsites.net/api/Authenticate/login';
+    var response = await http.post(Uri.parse(url2),
         headers: {
           "Accept": "application/json",
           "content-type": "application/json"
         },
         body: jsonEncode({
-          "email": email,
+          "username": username,
           "password": pass,
-        })
-    );
+        }));
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
       if (jsonResponse != null) {
@@ -40,8 +39,7 @@ class _LoginHomeState extends State<LoginHome> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => Principal()),
-            (Route<dynamic> route) => false
-        );
+            (Route<dynamic> route) => false);
       }
     } else {
       _alert('Login Error', 'Mensaje de error');
@@ -64,23 +62,21 @@ class _LoginHomeState extends State<LoginHome> {
     );
   }
 
-
-  TextStyle style = TextStyle(color: Colors.black, fontFamily: 'Montserrat', fontSize: 20.0);
+  TextStyle style =
+      TextStyle(color: Colors.black, fontFamily: 'Montserrat', fontSize: 20.0);
 
   @override
   Widget build(BuildContext context) {
-
     final emailField = TextFormField(
-      controller: emailController,
+      controller: usernameController,
       obscureText: false,
       style: style,
       decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.white,
-        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "example@dominio.com",
-        border: 
-        OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "pepito2021",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
       ),
     );
 
@@ -89,13 +85,12 @@ class _LoginHomeState extends State<LoginHome> {
       obscureText: true,
       style: style,
       decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.white,
-        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Contraseña",
-        border: 
-          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
-      ),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "Contraseña",
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
     );
 
     final loginButton = Material(
@@ -109,13 +104,13 @@ class _LoginHomeState extends State<LoginHome> {
           setState(() {
             _isLoading = true;
           });
-          login(emailController.text, passController.text);
+          login(usernameController.text, passController.text);
         },
-        child: Text("Acceder",
+        child: Text(
+          "Acceder",
           textAlign: TextAlign.center,
-          style: style.copyWith(
-            color: Colors.white, fontWeight: FontWeight.bold
-          ),
+          style:
+              style.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -123,18 +118,17 @@ class _LoginHomeState extends State<LoginHome> {
     final newAccount = TextButton(
       onPressed: () {
         Navigator.push(
-          context,MaterialPageRoute(builder: (context) => NewLogin())
-        );
+            context, MaterialPageRoute(builder: (context) => NewLogin()));
       },
       child: Text(
         'Crear Cuenta',
       ),
       style: TextButton.styleFrom(
-        primary: Colors.blue[100],
-        textStyle: TextStyle(
-          fontFamily: 'Montserrat', fontSize: 13.0, fontWeight: FontWeight.bold
-        )
-      ),
+          primary: Colors.blue[100],
+          textStyle: TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 13.0,
+              fontWeight: FontWeight.bold)),
     );
 
     return Scaffold(
@@ -142,9 +136,10 @@ class _LoginHomeState extends State<LoginHome> {
         backgroundColor: Colors.black87,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: ()=> Navigator.push(
-            context,MaterialPageRoute(builder: (context){return Principal();})
-          ),
+          onPressed: () =>
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return Principal();
+          })),
         ),
       ),
       body: Center(
@@ -158,7 +153,8 @@ class _LoginHomeState extends State<LoginHome> {
               children: <Widget>[
                 SizedBox(
                   height: 155.0,
-                  child: Image.asset('assets/ui/LogoUnder.png',
+                  child: Image.asset(
+                    'assets/ui/LogoUnder.png',
                     fit: BoxFit.contain,
                   ),
                 ),

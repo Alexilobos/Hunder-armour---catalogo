@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'login.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,21 +20,25 @@ class _NewLoginState extends State<NewLogin> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
-  register(String name, email, pass) async {
-    String url = '';
-    var response = await http.post(Uri.parse(url),
+  register(String username, email, pass) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString('token');
+    String url2 = 'https://backendfinalunderarmour.azurewebsites.net/api/Authenticate/login';
+    var response = await http.post(Uri.parse(url2),
         headers: {
           "Accept": "application/json",
-          "content-type": "application/json"
+          "content-type": "application/json",
         },
         body: jsonEncode({
-          "name": name,
+          "username": username,
           "email": email,
           "password": pass,
         }));
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       var jsonResponse = json.decode(response.body);
       if (jsonResponse != null) {
+        var token = jsonResponse['token'];
+        prefs.setString('token', token);
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => LoginHome()),
@@ -104,7 +109,7 @@ class _NewLoginState extends State<NewLogin> {
 
     final usernameFieldSingUp = TextFormField(
       controller: usernameController,
-      obscureText: true,
+      obscureText: false,
       style: style,
       decoration: InputDecoration(
         filled: true,
