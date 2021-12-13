@@ -90,8 +90,12 @@ class _AdminPrincipalProductState extends State<AdminPrincipalProduct> {
                                   height: 50,
                                   child: Row(
                                     children: <Widget>[
+                                      Padding(
+                                          padding: EdgeInsets.only(left: 80.0)),
                                       Container(
                                         child: Text(product.nombre,
+                                            style:
+                                                TextStyle(color: Colors.white),
                                             textAlign: TextAlign.center),
                                       ),
                                       TextButton(
